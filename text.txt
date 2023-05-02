@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    string arr[4][3] = {{"", "", ""}, {"text1", "text2", "text3"}, {"", "", ""}, {"text4", "text5", "text6"}};
+    string temp[4][3];
+    int count = 0;
+
+    for (int i = 0; i < 4; i++) {
+        if (arr[i][0] != "") {
+            for (int j = 0; j < 3; j++) {
+                temp[count][j] = arr[i][j];
+            }
+            count++;
+        }
+    }
+
+    for (int i = 0; i < 4; i++) {
+        if (arr[i][0] == "") {
+            for (int j = 0; j < 3; j++) {
+                arr[i][j] = temp[count][j];
+            }
+            count++;
+        }
+    }
+
+    // print arr to verify that it has been rearranged
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 3; j++) {
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
